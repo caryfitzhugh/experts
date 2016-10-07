@@ -15,6 +15,10 @@
   [:div [:h2 "About expert"]
    [:div [:a {:href "/"} "go to the home page"]]])
 
+(defn not-found-page []
+  [:div [:h2 "Not Found!"]
+    [:div [:a {:href "/"} "go to a happier place..."]]])
+
 (defn current-page []
   [:div [(session/get :current-page)]])
 
@@ -26,6 +30,9 @@
 
 (secretary/defroute "/about" []
   (session/put! :current-page #'about-page))
+
+(secretary/defroute "/*" []
+  (session/put! :current-page #'not-found-page))
 
 ;; -------------------------
 ;; Initialize app
