@@ -17,6 +17,8 @@
                  [garden "1.3.2"]
                  [org.clojure/clojurescript "1.9.229"
                   :scope "provided"]
+                 [com.andrewmcveigh/cljs-time "0.5.0-alpha1"]
+                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"]
                  [secretary "1.2.3"]
                  [venantius/accountant "0.1.7"
                   :exclusions [org.clojure/tools.reader]]]

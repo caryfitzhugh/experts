@@ -1,12 +1,15 @@
 (ns expert.views
 (:require
               [expert.layout :as layout]
+              [expert.views.auth :as auth]
+              [expert.views.home :as home]
               [expert.routes :as routes]
               [reagent.session :as session]
   ))
 
 (def views
-  {:about-page
+  {
+   :about-page
     (layout/layout
       [:div.container
         [:h2 "About expert"]
@@ -18,21 +21,27 @@
         [:h2 "Not Found!"]
         [:div [:a {:href "/"} "go to a happier place..."]]])
 
+  :home-page (layout/layout [home/root])
+
+  :login    (layout/layout [auth/login])
+
   :welcome-page
     (layout/landing-layout
       [:div
         [:div.container.landing-header
           [:h2 "The Go To Experts"]
-          [:div [:a.btn.btn-lg.btn-primary {:href (routes/get-help-path)} "Get Help"]]
+          [:div [:a.btn.btn-lg.btn-primary {:href (routes/login-path)} "Get Help"]]
         ]
         [:section.container
           [:h3 "Get Help From Experts"]
           [:div
-            [:p "Get Help from experts anytime anywhere.  On just about every subject we can help you get the 1 on 1 answers you need"]
+            [:p "Get help from experts anytime anywhere.  On just about every subject we can help you get the 1 on 1 answers you need"]
           ]
         ]
       ])
   })
 
 (defn current-page []
-  [:div (get views (session/get :current-page))])
+  (.log js/console "Current page is: " (session/get :current-page))
+  (let [template (get views (session/get :current-page))]
+  [:div (or template (get views :not-found))]))
