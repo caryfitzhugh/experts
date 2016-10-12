@@ -73,8 +73,8 @@
    }
   :garden {:builds [{
                       :id "main"
-                      :source-paths ["src"]
-                      :stylesheet clj.expert.styles/main
+                      :source-paths ["src/clj"]
+                      :stylesheet expert.styles/main
                       :compiler {
                                  :output-to "resources/public/css/site.css"
                                  }

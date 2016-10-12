@@ -16,8 +16,7 @@
    [:meta {:charset "utf-8"}]
    [:meta {:name "viewport"
            :content "width=device-width, initial-scale=1"}]
-   (include-css "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css")
-  ;; (include-js "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js")
+   (include-css "bootstrap/css/bootstrap.min.css")
    (include-js "https://use.fontawesome.com/97eead68fd.js")
    (include-css (if (env :dev) "/css/site.css" "/css/site.min.css"))])
 
