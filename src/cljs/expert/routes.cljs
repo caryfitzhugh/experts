@@ -34,6 +34,10 @@
     (session/assoc-in! [:views :home :selected] :history)
     (session/put! :current-page :home-page))
 
+(secretary/defroute home-profile-path "/home/profile"  []
+    (session/assoc-in! [:views :home :selected] :profile)
+    (session/put! :current-page :home-page))
+
 (secretary/defroute home-path "/home"  []
     (accountant/navigate! (home-active-conversations-path)))
 
