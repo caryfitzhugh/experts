@@ -34,7 +34,7 @@
          (conversation "upcoming1" "A Future Medical Device Repair" (tc/plus (tc/now) (tc/days 10)))
          (conversation "upcoming3" "Future Medical Device Repair" (tc/plus (tc/now) (tc/days 8)))
       ]
-      :archived [
+      :history [
          (conversation "past1" "A Past Medical Device Repair" (tc/minus (tc/now) (tc/days 10)))
          (conversation "past2" "Past Medical Device Repair" (tc/minus (tc/now) (tc/days 8)))
          (conversation "past3" "Past Medical Device Repair" (tc/minus (tc/now) (tc/days 8)))
