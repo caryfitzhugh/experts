@@ -3,6 +3,7 @@
             [secretary.core :as secretary :include-macros true]
             [reagent.session :as session]
             [expert.layout :as layout]
+            [expert.views.helpers :as h]
             [cljs-time.format :as tf]
             [reagent.core :as r]
             [accountant.core :as accountant]))
@@ -82,17 +83,6 @@
           ]) history))
       ]]))
 
-(defn input-element
-  "An input element which updates its value on change"
-  [id name type value]
-  [:input {:id id
-           :name name
-           :class "form-control"
-           :type type
-           :required ""
-           :defaultValue (name @value)
-           :on-change (fn [evt] (swap! value assoc name (-> evt .-target .-value)) )}])
-
 (defn profile
   []
   (let [profile-data (r/atom (session/get-in [:user :profile]))]
@@ -100,11 +90,11 @@
       [:form
         [:div.form-group
           [:label "Name"]
-          (input-element :name :name :text profile-data)
+          (h/input-element :name :name :text profile-data)
         ]
         [:div.form-group
           [:label "Email"]
-          (input-element :email :email :email profile-data)
+          (h/input-element :email :email :email profile-data)
         ]
         [:div.form-group
           [:button.btn.btn-primary {:type :submit :on-click (fn [evt]

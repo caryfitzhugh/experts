@@ -28,11 +28,6 @@
 (defn load-test-data!
  []
   (session/put! :user {
-    :profile {
-      :name "Cary FitzHugh"
-      :avatar (str "https://api.adorable.io/avatars/285/CaryFitzHugh%40adorable.io")
-      :email "cary@thegotoexpert.com"
-    }
     :conversations {
       :active [ (conversation "active" "Medical Device Repair" (tc/now))]
       :upcoming [
